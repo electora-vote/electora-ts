@@ -1,72 +1,36 @@
 {
-    "name": "@electora/electora-ts",
-    "author": "James Campbell <james.campbell@tanti.org.uk>",
-    "version": "0.0.1",
-    "license": "GPL-3.0-only",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/electora-vote/electora-ts"
-    },
-    "scripts": {
-        "build": "run-p build:*",
-        "build:main": "tsc -p tsconfig.json",
-        "build:module": "tsc -p tsconfig.module.json",
-        "fix": "run-s fix:*",
-        "fix:prettier": "prettier \"src/**/*.ts\" \"test/**/*.ts\" --write",
-        "fix:lint": "eslint src test --ext .ts --fix",
-        "test": "run-s build test:*",
-        "test:lint": "eslint src test --ext .ts",
-        "test:exports": "ts-unused-exports tsconfig.json --ignoreFiles src/index.ts",
-        "test:prettier": "prettier \"src/**/*.ts\" \"test/**/*.ts\" --list-different",
-        "test:unit": "jest --detectOpenHandles --forceExit --runInBand",
-        "prepare-release": "run-s reset-hard test doc:html version doc:publish",
-        "prepare-release:alpha": "run-s reset-hard test version:alpha"
-    },
-    "files": [
-        "build/main",
-        "build/module",
-        "!**/*.test.*",
-        "!**/*.json",
-        "CHANGELOG.md",
-        "LICENSE",
-        "README.md"
-    ],
-    "husky": {
-        "hooks": {
-            "pre-commit": "yarn typechain && yarn test:lint && yarn test"
-        }
-    },
-    "config": {
-        "commitizen": {
-            "path": "cz-conventional-changelog"
-        }
-    },
-    "prettier": {
-        "printWidth": 80,
-        "semi": true,
-        "singleQuote": true,
-        "trailingComma": "es5"
-    },
-    "jest": {
-        "preset": "ts-jest",
-        "testEnvironment": "node",
-        "transform": {
-            "^.+\\.js": "babel-jest"
-        },
-        "coverageReporters": [
-            "json",
-            "text",
-            "html",
-            "lcov",
-            "clover"
-        ],
-        "collectCoverage": true,
-        "coverageDirectory": "coverage",
-        "collectCoverageFrom": [
-            "src/**/*.ts"
-        ]
-    },
-    "devDependencies": {
-        "typescript": "^5.1.3"
-    }
+  "name": "electora-ts",
+  "version": "1.0.0",
+  "description": "",
+  "license": "GPL-3.0-only",
+  "dependencies": {
+    "@nucypher/nucypher-ts": "0.10.0"
+  },
+  "devDependencies": {
+    "esbuild": "^0.17.19",
+    "npm-dts": "^1.3.12",
+    "npm-run-all": "^4.1.5",
+    "typescript": "^5.1.3"
+  },
+  "scripts": {
+    "build": "run-p build:*",
+    "build:main": "tsc -p tsconfig.json",
+    "build:module": "tsc -p tsconfig.module.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electora-vote/electora-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/electora-vote/electora-ts/issues"
+  },
+  "files": [
+    "dist/*"
+  ],
+  "module": "dist/index.esm.js",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "homepage": "https://github.com/electora-vote/electora-ts#readme"
 }
