@@ -31,13 +31,10 @@
     "test": "run-s build test:*",
     "test:lint": "eslint src test --ext .ts",
     "test:unit": "jest --detectOpenHandles --forceExit --runInBand",
-    "version": "standard-version",
-    "version:alpha": "standard-version --prerelease alpha",
     "doc:html": "typedoc src/ --exclude **/*.spec.ts --out build/docs",
     "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
     "reset-hard": "git clean -dfx && git reset --hard && yarn",
-    "prepare-release": "run-s reset-hard test doc:html version doc:publish",
-    "prepare-release:alpha": "run-s reset-hard test version:alpha "
+    "prepare-release": "run-s reset-hard test doc:html doc:publish"
   },
   "repository": {
     "type": "git",
