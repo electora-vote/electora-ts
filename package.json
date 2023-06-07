@@ -9,13 +9,28 @@
     "@sismo-core/sismo-connect-client": "^0.0.11"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.59.9",
+    "@typescript-eslint/parser": "^5.59.9",
     "esbuild": "^0.17.19",
+    "eslint": "^8.42.0",
     "npm-dts": "^1.3.12",
     "npm-run-all": "^4.1.5",
     "typescript": "^5.1.3"
   },
   "scripts": {
-    "build": "node build.js"
+    "build": "node build.js",
+    "test": "run-s build test:*",
+    "test:lint": "eslint src test --ext .ts",
+    "test:exports": "ts-unused-exports tsconfig.json --ignoreFiles src/index.ts",
+    "test:prettier": "prettier \"src/**/*.ts\" \"test/**/*.ts\" --list-different",
+    "test:unit": "jest --detectOpenHandles --forceExit --runInBand",
+    "version": "standard-version",
+    "version:alpha": "standard-version --prerelease alpha",
+    "doc:html": "typedoc src/ --exclude **/*.spec.ts --out build/docs",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
+    "reset-hard": "git clean -dfx && git reset --hard && yarn",
+    "prepare-release": "run-s reset-hard test doc:html version doc:publish",
+    "prepare-release:alpha": "run-s reset-hard test version:alpha "
   },
   "repository": {
     "type": "git",
