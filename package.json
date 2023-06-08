@@ -44,6 +44,21 @@
       "@babel/preset-typescript"
     ]
   },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "rules": {}
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/electora-vote/electora-ts.git"
