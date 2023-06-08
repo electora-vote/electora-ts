@@ -20,7 +20,7 @@ async function buildCjsBundle() {
     entryPoints: ["src/index.ts"],
     bundle: true,
     minify: true,
-    platform: 'node', // for CJS
+    platform: 'node',
     outfile: "dist/index.js",
   };
 
@@ -32,7 +32,7 @@ async function buildEsmBundle() {
     entryPoints: ["src/index.ts"],
     bundle: true,
     minify: true,
-    platform: 'neutral', // for ESM
+    platform: 'neutral',
     format: "esm",
     outfile: "dist/index.esm.js",
   };
