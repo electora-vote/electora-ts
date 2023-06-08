@@ -2,6 +2,8 @@
   "name": "electora-ts",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "author": "",
   "license": "GPL-3.0-only",
   "dependencies": {
     "@bundlr-network/client": "^0.11.2",
@@ -46,8 +48,6 @@
     "type": "git",
     "url": "git+https://github.com/electora-vote/electora-ts.git"
   },
-  "keywords": [],
-  "author": "",
   "bugs": {
     "url": "https://github.com/electora-vote/electora-ts/issues"
   },
