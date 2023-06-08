@@ -10,6 +10,10 @@ yarn build
 yarn test
 ```
 
+## Commit Hooks
+Commit hooks are handled by [husky](https://typicode.github.io/husky/).
+To skip hooks use `--no-verify` flag.
+
 ## Publishing
 
 Publish a new release on NPM.
