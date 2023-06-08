@@ -5,6 +5,7 @@
   "keywords": [],
   "author": "",
   "license": "GPL-3.0-only",
+  "type": "module",
   "dependencies": {
     "@bundlr-network/client": "^0.11.2",
     "@nucypher/nucypher-ts": "0.10.0",

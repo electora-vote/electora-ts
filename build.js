@@ -1,27 +1,42 @@
-const { build } = require("esbuild");
-const { dependencies, peerDependencies } = require('./package.json');
-const { Generator } = require('npm-dts');
+import { build } from "esbuild";
+import npmDts from 'npm-dts';
+const { Generator } = npmDts;
 
-new Generator({
-  entry: 'src/index.ts',
-  output: 'dist/index.d.ts',
-}).generate();
+(async () => {
+  await generateDeclarationFile();
+  await buildCjsBundle();
+  await buildEsmBundle();
+})();
 
-const sharedConfig = {
-  entryPoints: ["src/index.ts"],
-  bundle: true,
-  minify: true,
-};
+async function generateDeclarationFile() {
+  new Generator({
+    entry: 'src/index.ts',
+    output: 'dist/index.d.ts',
+  }).generate();
+}
 
-build({
-  ...sharedConfig,
-  platform: 'node', // for CJS
-  outfile: "dist/index.js",
-});
+async function buildCjsBundle() {
+  const sharedConfig = {
+    entryPoints: ["src/index.ts"],
+    bundle: true,
+    minify: true,
+    platform: 'node', // for CJS
+    outfile: "dist/index.js",
+  };
 
-build({
-  ...sharedConfig,
-  outfile: "dist/index.esm.js",
-  platform: 'neutral', // for ESM
-  format: "esm",
-});
+  await build(sharedConfig);
+}
+
+async function buildEsmBundle() {
+  const sharedConfig = {
+    entryPoints: ["src/index.ts"],
+    bundle: true,
+    minify: true,
+    platform: 'neutral', // for ESM
+    format: "esm",
+    outfile: "dist/index.esm.js",
+  };
+
+  await build(sharedConfig);
+}
+
