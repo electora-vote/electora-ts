@@ -1,0 +1,34 @@
+# EditorConfig is a file format supported by most code editors. 
+# Check https://editorconfig.org for more details.
+
+# Top-most EditorConfig file
+root = true
+
+# Global settings
+[*]
+charset = utf-8
+end_of_line = lf
+indent_size = 2
+indent_style = space
+trim_trailing_whitespace = true
+
+# TypeScript files
+[*.ts]
+extends = .js
+
+# JavaScript files
+[*.js]
+indent_size = 2
+
+# JSON files
+[*.json]
+indent_size = 2
+
+# Python files
+[*.py]
+indent_size = 4
+
+# reStructuredText files
+[*.rst]
+indent_size = 4
+
