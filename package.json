@@ -36,6 +36,12 @@
     "reset-hard": "git clean -dfx && git reset --hard && yarn",
     "prepare-release": "run-s reset-hard test doc:html doc:publish"
   },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-typescript"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/electora-vote/electora-ts.git"
