@@ -19,7 +19,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "esbuild --bundle src/index.ts --platform=node --outfile=dist/index.js --minify --sourcemap",
+    "build": "node build.js",
     "test": "run-s build test:*",
     "test:lint": "eslint src test --ext .ts",
     "test:unit": "jest --detectOpenHandles --forceExit --runInBand",
