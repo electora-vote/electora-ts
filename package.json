@@ -4,6 +4,7 @@
   "description": "",
   "keywords": [],
   "license": "GPL-3.0-only",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/electora-vote/electora-ts.git"
@@ -77,4 +78,3 @@
     "rules": {}
   }
 }
-

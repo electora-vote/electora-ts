@@ -11,3 +11,4 @@ types
 dist
 .nvmrc
 !examples/**/.env
+docs/_build
