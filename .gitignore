@@ -5,7 +5,6 @@ build
 coverage
 example/dist
 dist/
-.husky
 .env
 types
 dist
