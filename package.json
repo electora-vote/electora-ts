@@ -3,13 +3,30 @@
   "version": "1.0.0",
   "description": "",
   "keywords": [],
-  "author": "",
   "license": "GPL-3.0-only",
-  "type": "module",
-  "dependencies": {
-    "@bundlr-network/client": "^0.11.2",
-    "@nucypher/nucypher-ts": "0.10.0",
-    "@sismo-core/sismo-connect-client": "^0.0.11"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electora-vote/electora-ts.git"
+  },
+  "bugs": {
+    "url": "https://github.com/electora-vote/electora-ts/issues"
+  },
+  "homepage": "https://github.com/electora-vote/electora-ts#readme",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "esbuild --bundle src/index.ts --platform=node --outfile=dist/index.js --minify --sourcemap",
+    "test": "run-s build test:*",
+    "test:lint": "eslint src test --ext .ts",
+    "test:unit": "jest --detectOpenHandles --forceExit --runInBand",
+    "doc:html": "typedoc src/ --exclude **/*.spec.ts --out build/docs",
+    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
+    "reset-hard": "git clean -dfx && git reset --hard && yarn",
+    "prepare-release": "run-s reset-hard test doc:html doc:publish"
   },
   "devDependencies": {
     "@babel/core": "^7.22.1",
@@ -29,15 +46,14 @@
     "typedoc": "^0.24.8",
     "typescript": "^5.1.0"
   },
-  "scripts": {
-    "build": "node build.js",
-    "test": "run-s build test:*",
-    "test:lint": "eslint src test --ext .ts",
-    "test:unit": "jest --detectOpenHandles --forceExit --runInBand",
-    "doc:html": "typedoc src/ --exclude **/*.spec.ts --out build/docs",
-    "doc:publish": "gh-pages -m \"[ci skip] Updates\" -d build/docs",
-    "reset-hard": "git clean -dfx && git reset --hard && yarn",
-    "prepare-release": "run-s reset-hard test doc:html doc:publish"
+  "dependencies": {
+    "@bundlr-network/client": "^0.11.2",
+    "@nucypher/nucypher-ts": "0.10.0",
+    "@sismo-core/sismo-connect-client": "^0.0.11"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "babel": {
     "presets": [
@@ -59,19 +75,6 @@
       "@typescript-eslint"
     ],
     "rules": {}
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/electora-vote/electora-ts.git"
-  },
-  "bugs": {
-    "url": "https://github.com/electora-vote/electora-ts/issues"
-  },
-  "files": [
-    "dist/*"
-  ],
-  "module": "dist/index.esm.js",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "homepage": "https://github.com/electora-vote/electora-ts#readme"
+  }
 }
+
