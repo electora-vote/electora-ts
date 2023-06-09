@@ -24,8 +24,5 @@ To build and publish a release, run
 
 ```bash
 yarn prepare-release
-# Or, to publish an alpha release
-yarn prepare-release:alpha
+npm publish
 ```
-
-Follow instructions from the command output to finalize the process.
