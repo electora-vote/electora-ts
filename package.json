@@ -1,6 +1,7 @@
 {
   "name": "electora-ts",
   "version": "1.0.1",
+  "type": "module",
   "description": "",
   "keywords": [],
   "license": "GPL-3.0-only",
