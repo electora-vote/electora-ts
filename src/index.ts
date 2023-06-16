@@ -52,3 +52,4 @@ export function decryptVote(ciphertext: string, timestamp: Date): string {
   return ciphertext;
 }
 
+export * from "@bundlr-network/client";
